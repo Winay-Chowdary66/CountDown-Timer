@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            background-color: aqua;
+            margin: auto;
+        }
+
+        #timerFunction {
+            font-size: 50px;
+            background-color: tomato;
+            padding: 20px;
+            color: whitesmoke;
+            box-shadow: 6px  15px 25px rgb(41, 40, 40);
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="timerFunction">Timer</p>
+
+
+    <script>
+
+        let toDate = new Date("June 30, 2021 15:37:25").getTime();
+        let toMonth = new Date("June 30, 2021 15:37:25").getMonth() + 1;
+        console.log(toMonth);
+        let timerFunction = setInterval(function () {
+
+            let presentDate = new Date().getTime();//0/p 1601030812308
+            let currentMonth = new Date().getMonth();
+            switch(currentMonth){
+            case 0:
+              month = 'January';
+              break;
+            case 1:
+              month = 'February';
+              break;
+            case 2:
+              month = 'March';
+              break;
+            case 3:
+              month = 'April';
+              break;
+            case 4:
+              month = 'May';
+              break;
+            case 5:
+              month = 'June';
+              break;
+            case 6:
+              month = 'July';
+              break;
+            case 7:
+              month = 'August';
+              break;
+            case 8:
+              month = 'September';
+              break;
+            case 9:
+              month = 'October';
+              break;
+            case 10:
+              month = 'November';
+              break;
+            case 11:
+              month = 'December';
+              break;
+            
+        }
+            let difference = toDate - presentDate;
+            let year = Math.floor(difference / (86400000 * 365));
+            let days = Math.floor(difference / (86400000));
+            let hours = Math.floor((difference % (86400000)) / (3600000));
+            let minutes = Math.floor((difference % (3600000)) / (1000 * 60));
+            let seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+
+            document.getElementById("timerFunction").innerHTML = year + "y " + month + " "+ days + "d " +  hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            if (difference < 0) {
+                clearInterval(timerFunction);
+                document.getElementById("timerFunction").innerHTML = "Hurry! It's my BirthDay! :)";
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
