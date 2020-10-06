@@ -88,7 +88,7 @@
             
         }
             let difference = toDate - presentDate;
-            let year = Math.floor(difference / (86400000 * 366));
+            let year = Math.round(difference / (86400000 * 366));
             let days = Math.floor(difference / (86400000));
             let hours = Math.floor((difference % (86400000)) / (3600000));
             let minutes = Math.floor((difference % (3600000)) / (1000 * 60));
