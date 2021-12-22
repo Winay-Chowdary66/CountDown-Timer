@@ -98,7 +98,7 @@
             document.getElementById("timerFunction").innerHTML = year + "y " + month + " "+ days + "d " +  hours + "h "
                 + minutes + "m " + seconds + "s ";
 
-            if (difference < 0) {
+            if ( 0 == difference) {
                 clearInterval(timerFunction);
                 document.getElementById("timerFunction").innerHTML = "Hurry! It's my BirthDay! :)";
             }
